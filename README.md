@@ -1,4 +1,4 @@
-# escape-maze-
+# escape maze
 
 # Prerequisites
 System Requirements
