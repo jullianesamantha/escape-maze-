@@ -54,32 +54,32 @@ source ~/.bashrc
 
 # Running the Simulation
 
-# Terminal 1: Launch complete simulation
+Terminal 1: Launch complete simulation
 ros2 launch escape_maze escape_maze_launch.py
 
-# Terminal 1: Gazebo simulation
+Terminal 1: Gazebo simulation
 ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 
-# Terminal 2: Navigation stack
+Terminal 2: Navigation stack
 ros2 launch nav2_bringup navigation_launch.py use_sim_time:=True
 
-# Terminal 3: Maze control system
+Terminal 3: Maze control system
 ros2 run escape_maze maze_controller
 ros2 run escape_maze puzzle_logic_engine
 ros2 run escape_maze clue_detector
 
-# Terminal 4: Voice control (optional)
+Terminal 4: Voice control (optional)
 ros2 run escape_maze voice_emergency_stop
 
 
 # Testing Commands
-# Test shape clue
+Test shape clue
 ros2 topic pub /maze/clue_detected std_msgs/String '{"data": "{\"type\": \"shape\", \"value\": \"triangle\"}"}'
 
-# Test color clue
+Test color clue
 ros2 topic pub /maze/clue_detected std_msgs/String '{"data": "{\"type\": \"color\", \"value\": \"red\"}"}'
 
-# Test QR clue
+Test QR clue
 ros2 topic pub /maze/clue_detected std_msgs/String '{"data": "{\"type\": \"qr\", \"value\": \"Proceed to Zone 3\"}"}'
 
 # Monitor the System
